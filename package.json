@@ -1,0 +1,23 @@
+{
+  "name": "initial-performance",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "clear && node --trace-warnings --trace-sigint --trace-uncaught --watch src/index.js",
+    "test:dev": "clear && node --test --watch ./tests/**/*.spec.js",
+    "test:prod": "node --test"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ramon Paolo Maram",
+    "url": "https://github.com/ramonpaolo"
+  },
+  "keywords": [
+    "javscript",
+    "performance",
+    "telemetry"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.25"
+  }
+}
