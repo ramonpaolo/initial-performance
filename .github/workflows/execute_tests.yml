@@ -1,0 +1,41 @@
+name: Run Test
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore: 
+      - LICENSE
+      - README.md
+      - .github/*.md
+      - .github/CODEOWNERS
+      - .gitignore
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - .github/*.md
+      - .github/CODEOWNERS
+      - .gitignore
+
+jobs:
+  test:
+    name: Test
+    timeout-minutes: 1
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js 21.7.0
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.7.0
+        cache: 'yarn'
+
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Run Test
+      run: yarn test:prod
